@@ -1,0 +1,38 @@
+<table class="profile" summary="Survey information">
+  <tr>
+    <td class="main">
+      <h1 align="center">
+        <%= @survey.name %>
+      </h1>
+	    Description: <%= @survey.description %>
+		<br><br>Answer each question by clicking a response between:
+		<br>(1) Low / Least Likely and (5) High / Most Likely. <br><br>
+				<% unless @questions.empty? %>
+		        <table class="questions" summary="survey questions">
+					<%= form_tag("/surveys/results/" + @survey.id.to_s) do %>
+		          		<% for q in @questions do%>
+							(<%= @counter = @counter + 1 %>) <%= q.content%> <br>
+							<%= radio_button "score" + q.id.to_s, "score_v", 1, %>1
+							<%= radio_button "score" + q.id.to_s, "score_v", 2, %>2
+							<%= radio_button "score" + q.id.to_s, "score_v", 3, %>3
+							<%= radio_button "score" + q.id.to_s, "score_v", 4, %>4
+							<%= radio_button "score" + q.id.to_s, "score_v", 5, %>5
+							<br>
+							<br>
+						<% end %>
+						<%= submit_tag("Submit!")%>
+			      	<% end %>
+		        </table>
+		      <% end %>
+		</p>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @survey.name %><br />
+      <strong>URL</strong> <%= link_to survey_path(@survey), @survey %><br />
+      <strong>Questions</strong> <%= @survey.questions.count %>
+	  <br><br><strong><%= session[:name]%> </strong>
+      <br><%= link_to "Change User", root_path %>
+      <br><br><%= link_to "Back to Surveys", surveys_path %>
+    </td>
+  </tr>
+</table>

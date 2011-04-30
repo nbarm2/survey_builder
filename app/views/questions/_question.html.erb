@@ -1,0 +1,10 @@
+
+  <br>
+  (<%= @counter = @counter + 1 %>) <%= question.content%>
+	<% if session[:type] == '0' || session[:type] == '1' %>
+	  <br> --options: <%= link_to "edit", edit_question_path(question.id)%> |
+   <%= link_to "delete", question, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete Question" %>
+  <% end %>
+
+  <br>

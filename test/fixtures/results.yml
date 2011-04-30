@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110429001548
+#
+# Table name: results
+#
+#  id          :integer         not null, primary key
+#  score       :integer
+#  question_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  score: 1
+  question_id: 1
+
+two:
+  score: 1
+  question_id: 1

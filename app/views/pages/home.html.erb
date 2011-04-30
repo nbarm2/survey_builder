@@ -1,0 +1,16 @@
+<h1 align="center">Welcome to Survey Builder 1.0 Beta</h1>
+<br>
+<p>
+<%= form_tag(root_path, :method => "post") do %>
+    <h2 align="center" >
+      Choose a user:
+    </h2>
+	<p align="center">
+	<%=  select("users1", "id", 
+       User.all.collect {|p| [ p.name, p.id] }) %>
+	<br>
+	<br>
+	<%= submit_tag("Start!", :class => "signup_button round")%>
+	</p>
+<% end %>
+</p>

@@ -1,0 +1,29 @@
+<table class="profile" summary="Survey information">
+  <tr>
+    <td class="main">
+      <h1 align="center">
+        Editing <%= @survey.name %>
+      </h1>
+	    Description: <%= @survey.description %>
+		<br> <br> Questions:
+				<% unless @survey.questions.empty? %>
+		        <table class="questions" summary="survey questions">
+		          <%= render @questions %>
+		        </table>
+		      <% end %>
+		<p align="center">
+		<% if session[:type] == '0' || session[:type] == '1' %>
+		  <%= link_to "Add a new Question", new_question_path%>
+		<% end %>
+		</p>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @survey.name %><br />
+      <strong>URL</strong> <%= link_to survey_path(@survey), @survey %><br />
+      <strong>Questions</strong> <%= @survey.questions.count %>
+	  <br><br><strong><%= session[:name]%> </strong>
+      <br><%= link_to "Change User", root_path %>
+      <br><br><%= link_to "Back to Surveys", surveys_path %>
+    </td>
+  </tr>
+</table>

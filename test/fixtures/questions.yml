@@ -1,0 +1,21 @@
+# == Schema Information
+# Schema version: 20110428053629
+#
+# Table name: questions
+#
+#  id         :integer         not null, primary key
+#  content    :string(255)
+#  survey_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  content: MyString
+  survey_id: 1
+
+two:
+  content: MyString
+  survey_id: 1

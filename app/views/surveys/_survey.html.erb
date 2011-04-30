@@ -1,0 +1,22 @@
+<li>
+  [<%= @counter = @counter + 1 %>] <%= survey.name%>: <%= survey.description%>
+	  <br> --options: 
+	<% if session[:type] == '0' || session[:type] == '1' || session[:type] == '2'%> 
+	<%= link_to "take", "/surveys/take/" + survey.id.to_s %> 
+   <% end %>
+	<% if session[:type] == '0' || session[:type] == '1'%> 
+	|
+   <% end %>
+	<% if session[:type] == '0' || session[:type] == '1' || session[:type] == '3'%> 
+	<%= link_to "results", "/surveys/total/" + survey.id.to_s%>
+   <% end %>
+	<% if session[:type] == '0' || session[:type] == '1'%> | <%= link_to "edit", survey%>
+   <% end %>
+	<% if session[:type] == '0' %>
+  | <%= link_to "delete", survey, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{survey.name}" %>
+  <% end %>
+
+  <br>
+  <br>
+</li>

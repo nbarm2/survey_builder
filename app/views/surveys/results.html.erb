@@ -1,0 +1,30 @@
+<table class="profile" summary="Survey information">
+  <tr>
+    <td class="main">
+      <h1 align="center">
+        <%= "Your Results"%>
+      </h1>
+	    Description: <%= @survey.description %>
+		<br><br>
+				<% unless @questions.empty? %>
+		        <table class="questions" summary="survey questions">
+		          		<% for q in @questions do%>
+							(<%= @counter = @counter + 1 %>) <%= q.content%> <br>
+							<%= @new_results[q.id.to_s]%>
+							<br>
+							<br>
+						<% end %>
+		        </table>
+		      <% end %>
+		</p>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @survey.name %><br />
+      <strong>URL</strong> <%= link_to survey_path(@survey), @survey %><br />
+      <strong>Questions</strong> <%= @survey.questions.count %>
+	  <br><br><strong><%= session[:name]%> </strong>
+      <br><%= link_to "Change User", root_path %>
+      <br><br><%= link_to "Back to Surveys", surveys_path %>
+    </td>
+  </tr>
+</table>

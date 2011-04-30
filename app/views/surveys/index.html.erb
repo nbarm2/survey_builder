@@ -1,0 +1,24 @@
+<table class="profile" summary="Survey information">
+  <tr>
+    <td class="main">
+		<h1 align="center">Surveys</h1>
+
+		<%= will_paginate %>
+		
+		<ul class="users">
+		  <%= render @surveys %>
+		</ul>
+		
+		<%= will_paginate %>
+		<p align="center">
+		<% if session[:type] == '0' %>
+		  <%= link_to "Add a new Survey", new_survey_path%>
+		<% end %>
+		</p>
+    </td>
+    <td class="sidebar round">
+	  <br><strong><%= session[:name]%> </strong>
+      <br><%= link_to "Change User", root_path %>
+    </td>
+  </tr>
+</table>
